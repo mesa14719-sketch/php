@@ -10,7 +10,7 @@
 // ============================================================
 $BOT_TOKEN = "8743950401:AAENgy8-8kVzP4oR3UWRD_Y33Dzy59qX3ew";
 $ADMIN_ID = 7757241009;
-$BASE_URL = "https://astidafaphp.wuaze.com"; // رابط استضافتك (بدون /)
+$BASE_URL = "https://php-lu05.onrender.com"; // رابط استضافتك (بدون /)
 $UPLOAD_DIR = "bots/";
 // ============================================================
 
