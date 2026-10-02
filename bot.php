@@ -10,7 +10,7 @@
 // ============================================================
 $BOT_TOKEN = "8626171336:AAHHEeh0ozItynQGIeTBGHNohFpITbT7mu4";
 $ADMIN_ID = 7757241009;
-$BASE_URL = "https://php-lu05.onrender.com"; // رابط استضافتك (بدون /)
+$BASE_URL = "https://php-a38r.onrender.com"; // رابط استضافتك (بدون /)
 $UPLOAD_DIR = "bots/";
 // ============================================================
 
