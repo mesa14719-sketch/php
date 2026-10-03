@@ -8,7 +8,7 @@
 // ============================================================
 // 🔧 الإعدادات (عدّل هذه القيم)
 // ============================================================
-$BOT_TOKEN = "8626171336:AAHHEeh0ozItynQGIeTBGHNohFpITbT7mu4ا";
+$BOT_TOKEN = "8626171336:AAHHEeh0ozItynQGIeTBGHNohFpITbT7mu4";
 $ADMIN_ID = 7757241009;
 $BASE_URL = "https://php-flni.onrender.com"; // رابط استضافتك (بدون /)
 $UPLOAD_DIR = "bots/";
