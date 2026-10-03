@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+# توجيه /webhook إلى index.php
+RewriteRule ^webhook$ index.php [L,QSA]
+
+# توجيه مسارات البوتات المرفوعة
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^bots/([^/]+)/bot\.php$ bots/$1/bot.php [L]
