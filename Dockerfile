@@ -6,11 +6,19 @@ RUN a2enmod rewrite
 # السماح بالـ .htaccess
 RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
 
-# نسخ كل الملفات
+# تثبيت curl
+RUN apt-get update && apt-get install -y \
+        libcurl4-openssl-dev \
+        unzip \
+    && docker-php-ext-install curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# نسخ الملفات
 COPY . /var/www/html/
 
-# جعل bot.php الملف الافتراضي
-RUN echo "DirectoryIndex bot.php index.php index.html" > /etc/apache2/conf-available/dir.conf \
+# الملف الافتراضي
+RUN echo "DirectoryIndex index.php index.html" > /etc/apache2/conf-available/dir.conf \
     && a2enconf dir
 
 # صلاحيات
