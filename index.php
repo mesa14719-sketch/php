@@ -127,7 +127,7 @@ if ($message) {
     
     // ===== أمر /start =====
     if ($text == '/start') {
-        $keyboard =, 'style' => 'danger'[
+        $keyboard = [
             [['text' => '📤 رفع بوت', 'callback_data' => 'upload']],
             [['text' => '📋 بوتاتي', 'callback_data' => 'my_bots']],
             [['text' => 'ℹ️ تعليمات', 'callback_data' => 'help']]
@@ -250,7 +250,7 @@ if ($callback) {
             $keyboard[] = [['text' => "📁 {$bot['id']}", 'callback_data' => "detail_{$bot['id']}"]];
         }
         $keyboard[] = [['text' => '🔙 رجوع', 'callback_data' => 'back']];
-        edit_message, 'style' => 'danger'($chat_id, $message_id, $text, inline_keyboard($keyboard));
+        edit_message($chat_id, $message_id, $text, inline_keyboard($keyboard));
         exit;
     }
     
@@ -274,7 +274,7 @@ if ($callback) {
     }
     
     // زر الإحصائيات (للمطور)
-    if, 'style' => 'danger'($data == 'stats' && is_admin($user_id)) {
+    if ($data == 'stats' && is_admin($user_id)) {
         $bots = get_bots_list();
         $total = count($bots);
         $running = 0;
@@ -293,7 +293,7 @@ if ($callback) {
     // زر مسح الكل (للمطور)
     if ($data == 'reset' && is_admin($user_id)) {
         $bots = get_bots_list();
-        foreach, 'style' => 'danger'($bots as $bot) {
+        foreach ($bots as $bot) {
             $folder = $UPLOAD_DIR . '/' . $bot['id'];
             if (is_dir($folder)) {
                 array_map('unlink', glob("$folder/*.*"));
@@ -308,7 +308,7 @@ if ($callback) {
     
     // ===== إدارة البوتات الفردية =====
     if (preg_match('/^(detail|start|stop|delete)_(bot_.+)$/', $data, $matches)) {
-        $action = $matches, 'style' => 'danger'[1];
+        $action = $matches[1];
         $bot_id = $matches[2];
         $file_path = $UPLOAD_DIR . '/' . $bot_id . '/bot.php';
         $bot_url = get_bot_url($bot_id);
@@ -373,7 +373,7 @@ if ($callback) {
         }
         
         if ($action == 'delete') {
-            delete_webhook, 'style' => 'danger'($token);
+            delete_webhook($token);
             $folder = $UPLOAD_DIR . '/' . $bot_id;
             if (is_dir($folder)) {
                 array_map('unlink', glob("$folder/*.*"));
